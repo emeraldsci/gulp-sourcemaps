@@ -32,7 +32,7 @@ var getCommentFormatter = function (file) {
   if (file.sourceMap.preExistingComment){
     debug(logCb('preExistingComment commentFormatter'));
     commentFormatter = function(url) {
-      return "//# sourceMappingURL=" + url + newline;
+      return "// sourceMappingURL=" + url + newline;
     };
     return commentFormatter;
   }
@@ -41,13 +41,13 @@ var getCommentFormatter = function (file) {
     case 'css':
       debug(logCb('css commentFormatter'));
       commentFormatter = function(url) {
-        return newline + "/*# sourceMappingURL=" + url + " */" + newline;
+        return newline + "/* sourceMappingURL=" + url + " */" + newline;
       };
       break;
     case 'js':
       debug(logCb('js commentFormatter'));
       commentFormatter = function(url) {
-        return newline + "//# sourceMappingURL=" + url + newline;
+        return newline + "// sourceMappingURL=" + url + newline;
       };
       break;
     default:
